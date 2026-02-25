@@ -1,6 +1,6 @@
 // === Contruent Fields - Demo ===
   // Register via Formio.use() — the portal-supported method
-  // version 0.1.4
+  // version 0.1.5
 
   var SelectComponent = Formio.Components.components.select;
 
@@ -9,7 +9,7 @@
       return {
         title: 'Project Selector',
         icon: 'building',
-        group: 'contruentFields',
+        group: 'basic',
         weight: 0,
         documentation: 'Pre-wired project dropdown',
         schema: ProjectSelector.schema()
@@ -43,11 +43,3 @@
       projectSelector: ProjectSelector
     }
   });
-
-if (Formio.builder && Formio.builder.groups) {
-    Formio.builder.groups.contruentFields = {
-      title: 'Contruent Fields',
-      weight: 0,
-      default: true
-    };
-  }
