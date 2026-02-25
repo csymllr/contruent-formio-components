@@ -9,7 +9,7 @@
       return {
         title: 'Project Selector',
         icon: 'building',
-        group: 'basic',
+        group: 'contruentFields',
         weight: 0,
         documentation: 'Pre-wired project dropdown',
         schema: ProjectSelector.schema()
@@ -43,3 +43,11 @@
       projectSelector: ProjectSelector
     }
   });
+
+if (Formio.builder && Formio.builder.groups) {
+    Formio.builder.groups.contruentFields = {
+      title: 'Contruent Fields',
+      weight: 0,
+      default: true
+    };
+  }
