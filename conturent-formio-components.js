@@ -1,27 +1,25 @@
 // === Contruent Fields - Demo ===
-  // Registers a "Contruent Fields" group in the Form.io builder sidebar
-  // Paste the raw URL of this snippet into Project Settings > Custom Javascript
+  // Register via Formio.use() — the portal-supported method
 
-  const Components = Formio.Components;
-  const SelectComponent = Components.components.select;
+  var SelectComponent = Formio.Components.components.select;
 
   class ProjectSelector extends SelectComponent {
     static get builderInfo() {
       return {
         title: 'Project Selector',
         icon: 'building',
-        group: 'contruentFields',
+        group: 'basic',
         weight: 0,
-        documentation: 'Pre-wired project dropdown from Contruent Fields',
+        documentation: 'Pre-wired project dropdown',
         schema: ProjectSelector.schema()
       };
     }
 
     static schema(...extend) {
       return SelectComponent.schema({
+        type: 'projectSelector',
         label: 'Project',
         key: 'projectId',
-        type: 'select',
         dataSrc: 'values',
         data: {
           values: [
@@ -33,6 +31,14 @@
         validate: { required: true }
       }, ...extend);
     }
+
+    get defaultSchema() {
+      return ProjectSelector.schema();
+    }
   }
 
-  Components.addComponent('projectSelector', ProjectSelector);
+  Formio.use({
+    components: {
+      projectSelector: ProjectSelector
+    }
+  });
