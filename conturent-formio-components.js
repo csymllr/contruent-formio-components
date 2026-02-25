@@ -1,6 +1,6 @@
 // === Contruent Fields - Demo ===
   // Register via Formio.use() — the portal-supported method
-  // version 0.1.3 
+  // version 0.1.4
 
   var SelectComponent = Formio.Components.components.select;
 
